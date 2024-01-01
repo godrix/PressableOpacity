@@ -30,10 +30,16 @@ export function PressableOpacity({activeOpacity=0.2, children, onPressIn, onPres
   };
 
   return (
-    <Pressable onPressIn={_onPressIn} onPressOut={_onPressOut} {...rest}>
-      <Animated.View style={{ opacity }}>
+    <Animated.View style={{ opacity }}>
+    <Pressable 
+      onPressIn={_onPressIn} 
+      onPressOut={_onPressOut} 
+      hitSlop={{
+        left:200
+      }}
+      {...rest}>
         {children}
-      </Animated.View>
     </Pressable>
+    </Animated.View>
   );
 }
